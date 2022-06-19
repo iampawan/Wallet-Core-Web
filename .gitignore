@@ -33,3 +33,5 @@ build/
 tool/node_modules
 tool/yarn-error.log
 tool/yarn.lock
+
+node_modules/
