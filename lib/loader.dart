@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:html';
 import 'dart:js';
 
+import 'package:wallet_core_web/proto.dart';
 import 'package:wallet_core_web/wallet_core.dart';
 
 Future<void> loadJs() async {
@@ -40,4 +41,11 @@ void onRuntimeInitialized() {
       '{"id":1554098597199736,"jsonrpc":"2.0","method":"wc_sessionUpdate","params":[{"approved":false,"chainId":null,"accounts":null}]}';
 
   print('blah: ${expected == decrypted} -> $decrypted');
+
+  var tx = EthereumTransaction();
+  var transfer = EthereumTransfer();
+  transfer.amount(HexCoding.decode("0348bca5a16000"));
+  tx.transfer(transfer);
+
+  print('tx: ${tx.toJSON()}');
 }
