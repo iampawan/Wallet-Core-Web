@@ -20,11 +20,12 @@ class AnySigner {
 }
 
 // Module HexCoding
-@JS("HexCoding.decode")
-external Uint8List decode(String hex);
+@JS()
+class HexCoding {
+  external static Uint8List decode(String hex);
 
-@JS("HexCoding.encode")
-external String encode(dynamic /*Uint8List|Buffer*/ buffer);
+  external static String encode(dynamic /*Uint8List|Buffer*/ buffer);
+}
 
 // End module HexCoding
 @JS()
@@ -32,7 +33,7 @@ class HDWallet {
   external static PublicKey getPublicKeyFromExtended(
       String extended, CoinType coin, String derivationPath);
 
-  external HDWallet(num strength, String passphrase);
+  external static HDWallet create(num strength, String passphrase);
 
   external static HDWallet createWithMnemonic(String mnemonic, String passphrase);
 

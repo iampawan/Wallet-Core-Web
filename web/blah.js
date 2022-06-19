@@ -1,2 +1,0 @@
-
-window.blah = 'hello world';
