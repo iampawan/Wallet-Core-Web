@@ -1,0 +1,7 @@
+{
+  "name": "wallet_core_web",
+  "version": "1.0.0",
+  "dependencies": {
+    "@trustwallet/wallet-core": "^2.9.4"
+  }
+}
