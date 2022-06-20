@@ -2,6 +2,7 @@
   "name": "wallet_core_web",
   "version": "1.0.0",
   "dependencies": {
-    "@trustwallet/wallet-core": "^2.9.4"
+    "@trustwallet/wallet-core": "^2.9.4",
+    "protobufjs": ">=6.11.3"
   }
 }

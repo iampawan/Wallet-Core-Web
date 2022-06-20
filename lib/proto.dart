@@ -1,4 +1,4 @@
-@JS('proto.TW.Ethereum.Proto')
+@JS('TW')
 library wallet_core;
 
 import 'dart:typed_data';
@@ -6,14 +6,14 @@ import 'dart:typed_data';
 import 'package:js/js.dart';
 
 /// Properties of a Transaction.
-@JS('ITransaction')
+@JS('Ethereum.Proto.ITransaction')
 abstract class EthereumITransaction {
   ///** Transaction transfer */
   EthereumITransfer? transfer(EthereumITransfer? value);
 }
 
 /// Represents a Transaction.
-@JS('Transaction')
+@JS('Ethereum.Proto.Transaction')
 class EthereumTransaction implements EthereumITransaction {
   /// Constructs a new Transaction.
   /// @param [properties] Properties to set
@@ -29,7 +29,7 @@ class EthereumTransaction implements EthereumITransaction {
 }
 
 /// Properties of a Transfer
-@JS('Transaction.ITransfer')
+@JS('Ethereum.Proto.Transaction.ITransfer')
 abstract class EthereumITransfer {
   /// Transfer amount
   Uint8List? amount([Uint8List? value]);
@@ -39,7 +39,7 @@ abstract class EthereumITransfer {
 }
 
 /// Represents a Transfer.
-@JS('Transaction.Transfer')
+@JS('Ethereum.Proto.Transaction.Transfer')
 class EthereumTransfer implements EthereumITransfer {
   /// Constructs a new Transfer.
   /// @param [properties] Properties to set
