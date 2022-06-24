@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  inject_js: ^2.0.0
   js: ^0.6.4
+  protobuf: ^2.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1
@@ -18,5 +20,5 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-  # assets:
-  # - assets/loader.js
+  assets:
+    - web/assets/

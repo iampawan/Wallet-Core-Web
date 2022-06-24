@@ -1,5 +1,5 @@
 @JS('Module')
-library wallet_core;
+library wallet_core_web;
 
 import 'dart:typed_data';
 
@@ -12,9 +12,11 @@ import "package:js/js.dart";
 /// This is a GENERATED FILE, changes made here WILL BE LOST.
 @JS()
 class AnySigner {
-  external static Uint8List sign(dynamic /*Uint8List|Buffer*/ data, CoinType coin);
+  external static Uint8List sign(
+      Uint8List /*Uint8List|Buffer*/ data, CoinType coin);
 
-  external static Uint8List plan(dynamic /*Uint8List|Buffer*/ data, CoinType coin);
+  external static Uint8List plan(
+      dynamic /*Uint8List|Buffer*/ data, CoinType coin);
 
   external static bool supportsJSON(CoinType coin);
 }
@@ -35,9 +37,11 @@ class HDWallet {
 
   external static HDWallet create(num strength, String passphrase);
 
-  external static HDWallet createWithMnemonic(String mnemonic, String passphrase);
+  external static HDWallet createWithMnemonic(
+      String mnemonic, String passphrase);
 
-  external static HDWallet createWithMnemonicCheck(String mnemonic, String passphrase, bool check);
+  external static HDWallet createWithMnemonicCheck(
+      String mnemonic, String passphrase, bool check);
 
   external static HDWallet createWithEntropy(
       dynamic /*Uint8List|Buffer*/ entropy, String passphrase);
@@ -56,11 +60,14 @@ class HDWallet {
 
   external PrivateKey getKey(CoinType coin, String derivationPath);
 
-  external PrivateKey getDerivedKey(CoinType coin, num account, num change, num address);
+  external PrivateKey getDerivedKey(
+      CoinType coin, num account, num change, num address);
 
-  external String getExtendedPrivateKey(Purpose purpose, CoinType coin, HDVersion version);
+  external String getExtendedPrivateKey(
+      Purpose purpose, CoinType coin, HDVersion version);
 
-  external String getExtendedPublicKey(Purpose purpose, CoinType coin, HDVersion version);
+  external String getExtendedPublicKey(
+      Purpose purpose, CoinType coin, HDVersion version);
 
   external String getExtendedPrivateKeyAccount(
       Purpose purpose, CoinType coin, HDVersion version, num account);
@@ -110,9 +117,11 @@ class PrivateKey {
 
   external Uint8List sign(dynamic /*Uint8List|Buffer*/ digest, Curve curve);
 
-  external Uint8List signAsDER(dynamic /*Uint8List|Buffer*/ digest, Curve curve);
+  external Uint8List signAsDER(
+      dynamic /*Uint8List|Buffer*/ digest, Curve curve);
 
-  external Uint8List signSchnorr(dynamic /*Uint8List|Buffer*/ message, Curve curve);
+  external Uint8List signSchnorr(
+      dynamic /*Uint8List|Buffer*/ message, Curve curve);
 
   external void delete();
 }
@@ -121,24 +130,30 @@ class PrivateKey {
 class BitcoinScript {
   external static bool equal(BitcoinScript lhs, BitcoinScript rhs);
 
-  external static BitcoinScript buildPayToPublicKey(dynamic /*Uint8List|Buffer*/ pubkey);
+  external static BitcoinScript buildPayToPublicKey(
+      dynamic /*Uint8List|Buffer*/ pubkey);
 
-  external static BitcoinScript buildPayToPublicKeyHash(dynamic /*Uint8List|Buffer*/ hash);
+  external static BitcoinScript buildPayToPublicKeyHash(
+      dynamic /*Uint8List|Buffer*/ hash);
 
-  external static BitcoinScript buildPayToScriptHash(dynamic /*Uint8List|Buffer*/ scriptHash);
+  external static BitcoinScript buildPayToScriptHash(
+      dynamic /*Uint8List|Buffer*/ scriptHash);
 
-  external static BitcoinScript buildPayToWitnessPubkeyHash(dynamic /*Uint8List|Buffer*/ hash);
+  external static BitcoinScript buildPayToWitnessPubkeyHash(
+      dynamic /*Uint8List|Buffer*/ hash);
 
   external static BitcoinScript buildPayToWitnessScriptHash(
       dynamic /*Uint8List|Buffer*/ scriptHash);
 
-  external static BitcoinScript lockScriptForAddress(String address, CoinType coin);
+  external static BitcoinScript lockScriptForAddress(
+      String address, CoinType coin);
 
   external static num hashTypeForCoin(CoinType coinType);
 
   external static BitcoinScript create();
 
-  external static BitcoinScript createWithData(dynamic /*Uint8List|Buffer*/ data);
+  external static BitcoinScript createWithData(
+      dynamic /*Uint8List|Buffer*/ data);
 
   external static BitcoinScript createCopy(BitcoinScript script);
 
@@ -210,7 +225,8 @@ class AnyAddress {
 
   external static AnyAddress createWithString(String string, CoinType coin);
 
-  external static AnyAddress createWithPublicKey(PublicKey publicKey, CoinType coin);
+  external static AnyAddress createWithPublicKey(
+      PublicKey publicKey, CoinType coin);
 
   external String description();
 
@@ -223,8 +239,13 @@ class AnyAddress {
 
 @JS()
 class Account {
-  external static Account create(String address, CoinType coin, Derivation derivation,
-      String derivationPath, String publicKey, String extendedPublicKey);
+  external static Account create(
+      String address,
+      CoinType coin,
+      Derivation derivation,
+      String derivationPath,
+      String publicKey,
+      String extendedPublicKey);
 
   external String address();
 
@@ -298,7 +319,8 @@ class RippleXAddress {
 
   external static RippleXAddress createWithString(String string);
 
-  external static RippleXAddress createWithPublicKey(PublicKey publicKey, num tag);
+  external static RippleXAddress createWithPublicKey(
+      PublicKey publicKey, num tag);
 
   external String description();
 
@@ -329,21 +351,26 @@ class EthereumAbiValue {
 
   external static String decodeUInt256(dynamic /*Uint8List|Buffer*/ input);
 
-  external static String decodeValue(dynamic /*Uint8List|Buffer*/ input, String type);
+  external static String decodeValue(
+      dynamic /*Uint8List|Buffer*/ input, String type);
 
-  external static String decodeArray(dynamic /*Uint8List|Buffer*/ input, String type);
+  external static String decodeArray(
+      dynamic /*Uint8List|Buffer*/ input, String type);
 }
 
 @JS()
 class TransactionCompiler {
-  external static Uint8List buildInput(CoinType coinType, String from, String to, String amount,
-      String asset, String memo, String chainId);
+  external static Uint8List buildInput(CoinType coinType, String from,
+      String to, String amount, String asset, String memo, String chainId);
 
   external static Uint8List preImageHashes(
       CoinType coinType, dynamic /*Uint8List|Buffer*/ txInputData);
 
-  external static Uint8List compileWithSignatures(CoinType coinType,
-      dynamic /*Uint8List|Buffer*/ txInputData, DataVector signatures, DataVector publicKeys);
+  external static Uint8List compileWithSignatures(
+      CoinType coinType,
+      dynamic /*Uint8List|Buffer*/ txInputData,
+      DataVector signatures,
+      DataVector publicKeys);
 }
 
 @JS()
@@ -365,9 +392,11 @@ class AESPaddingMode {
 class EthereumAbi {
   external static Uint8List encode(EthereumAbiFunction fn);
 
-  external static bool decodeOutput(EthereumAbiFunction fn, dynamic /*Uint8List|Buffer*/ encoded);
+  external static bool decodeOutput(
+      EthereumAbiFunction fn, dynamic /*Uint8List|Buffer*/ encoded);
 
-  external static String decodeCall(dynamic /*Uint8List|Buffer*/ data, String abi);
+  external static String decodeCall(
+      dynamic /*Uint8List|Buffer*/ data, String abi);
 
   external static Uint8List encodeTyped(String messageJson);
 }
@@ -510,11 +539,17 @@ external String describeHRP(HRP value);
 
 @JS()
 class AES {
-  external static Uint8List encryptCBC(dynamic /*Uint8List|Buffer*/ key,
-      dynamic /*Uint8List|Buffer*/ data, dynamic /*Uint8List|Buffer*/ iv, AESPaddingMode mode);
+  external static Uint8List encryptCBC(
+      dynamic /*Uint8List|Buffer*/ key,
+      dynamic /*Uint8List|Buffer*/ data,
+      dynamic /*Uint8List|Buffer*/ iv,
+      AESPaddingMode mode);
 
-  external static Uint8List decryptCBC(dynamic /*Uint8List|Buffer*/ key,
-      dynamic /*Uint8List|Buffer*/ data, dynamic /*Uint8List|Buffer*/ iv, AESPaddingMode mode);
+  external static Uint8List decryptCBC(
+      dynamic /*Uint8List|Buffer*/ key,
+      dynamic /*Uint8List|Buffer*/ data,
+      dynamic /*Uint8List|Buffer*/ iv,
+      AESPaddingMode mode);
 
   external static Uint8List encryptCTR(dynamic /*Uint8List|Buffer*/ key,
       dynamic /*Uint8List|Buffer*/ data, dynamic /*Uint8List|Buffer*/ iv);
@@ -714,7 +749,8 @@ class GroestlcoinAddress {
 
   external static GroestlcoinAddress createWithString(String string);
 
-  external static GroestlcoinAddress createWithPublicKey(PublicKey publicKey, num prefix);
+  external static GroestlcoinAddress createWithPublicKey(
+      PublicKey publicKey, num prefix);
 
   external String description();
 
@@ -849,7 +885,8 @@ class Hash {
 
   external static Uint8List blake256(dynamic /*Uint8List|Buffer*/ data);
 
-  external static Uint8List blake2b(dynamic /*Uint8List|Buffer*/ data, num size);
+  external static Uint8List blake2b(
+      dynamic /*Uint8List|Buffer*/ data, num size);
 
   external static Uint8List groestl512(dynamic /*Uint8List|Buffer*/ data);
 
@@ -863,7 +900,8 @@ class Hash {
 
   external static Uint8List blake256RIPEMD(dynamic /*Uint8List|Buffer*/ data);
 
-  external static Uint8List groestl512Groestl512(dynamic /*Uint8List|Buffer*/ data);
+  external static Uint8List groestl512Groestl512(
+      dynamic /*Uint8List|Buffer*/ data);
 }
 
 @JS()
@@ -1306,7 +1344,8 @@ class EthereumAbiFunction {
 
   external num addParamUInt256(dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
-  external num addParamUIntN(num bits, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
+  external num addParamUIntN(
+      num bits, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
   external num addParamInt8(num val, bool isOutput);
 
@@ -1318,7 +1357,8 @@ class EthereumAbiFunction {
 
   external num addParamInt256(dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
-  external num addParamIntN(num bits, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
+  external num addParamIntN(
+      num bits, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
   external num addParamBool(bool val, bool isOutput);
 
@@ -1328,7 +1368,8 @@ class EthereumAbiFunction {
 
   external num addParamBytes(dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
-  external num addParamBytesFix(num size, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
+  external num addParamBytesFix(
+      num size, dynamic /*Uint8List|Buffer*/ val, bool isOutput);
 
   external num addParamArray(bool isOutput);
 
@@ -1352,9 +1393,11 @@ class EthereumAbiFunction {
 
   external num addInArrayParamUInt64(num arrayIdx, num val);
 
-  external num addInArrayParamUInt256(num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamUInt256(
+      num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
 
-  external num addInArrayParamUIntN(num arrayIdx, num bits, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamUIntN(
+      num arrayIdx, num bits, dynamic /*Uint8List|Buffer*/ val);
 
   external num addInArrayParamInt8(num arrayIdx, num val);
 
@@ -1364,19 +1407,24 @@ class EthereumAbiFunction {
 
   external num addInArrayParamInt64(num arrayIdx, num val);
 
-  external num addInArrayParamInt256(num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamInt256(
+      num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
 
-  external num addInArrayParamIntN(num arrayIdx, num bits, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamIntN(
+      num arrayIdx, num bits, dynamic /*Uint8List|Buffer*/ val);
 
   external num addInArrayParamBool(num arrayIdx, bool val);
 
   external num addInArrayParamString(num arrayIdx, String val);
 
-  external num addInArrayParamAddress(num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamAddress(
+      num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
 
-  external num addInArrayParamBytes(num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamBytes(
+      num arrayIdx, dynamic /*Uint8List|Buffer*/ val);
 
-  external num addInArrayParamBytesFix(num arrayIdx, num size, dynamic /*Uint8List|Buffer*/ val);
+  external num addInArrayParamBytesFix(
+      num arrayIdx, num size, dynamic /*Uint8List|Buffer*/ val);
 
   external void delete();
 }
@@ -1406,9 +1454,11 @@ class BitcoinAddress {
 
   external static BitcoinAddress createWithString(String string);
 
-  external static BitcoinAddress createWithData(dynamic /*Uint8List|Buffer*/ data);
+  external static BitcoinAddress createWithData(
+      dynamic /*Uint8List|Buffer*/ data);
 
-  external static BitcoinAddress createWithPublicKey(PublicKey publicKey, num prefix);
+  external static BitcoinAddress createWithPublicKey(
+      PublicKey publicKey, num prefix);
 
   external String description();
 
@@ -1427,7 +1477,8 @@ class SegwitAddress {
 
   external static SegwitAddress createWithString(String string);
 
-  external static SegwitAddress createWithPublicKey(HRP hrp, PublicKey publicKey);
+  external static SegwitAddress createWithPublicKey(
+      HRP hrp, PublicKey publicKey);
 
   external String description();
 
@@ -1489,18 +1540,24 @@ class NEARAccount {
 class StoredKey {
   external static StoredKey load(String path);
 
-  external static StoredKey importPrivateKey(dynamic /*Uint8List|Buffer*/ privateKey, String name,
-      dynamic /*Uint8List|Buffer*/ password, CoinType coin);
+  external static StoredKey importPrivateKey(
+      dynamic /*Uint8List|Buffer*/ privateKey,
+      String name,
+      dynamic /*Uint8List|Buffer*/ password,
+      CoinType coin);
 
-  external static StoredKey importHDWallet(
-      String mnemonic, String name, dynamic /*Uint8List|Buffer*/ password, CoinType coin);
+  external static StoredKey importHDWallet(String mnemonic, String name,
+      dynamic /*Uint8List|Buffer*/ password, CoinType coin);
 
   external static StoredKey importJSON(dynamic /*Uint8List|Buffer*/ json);
 
   external static StoredKey createLevel(
-      String name, dynamic /*Uint8List|Buffer*/ password, StoredKeyEncryptionLevel encryptionLevel);
+      String name,
+      dynamic /*Uint8List|Buffer*/ password,
+      StoredKeyEncryptionLevel encryptionLevel);
 
-  external static StoredKey create(String name, dynamic /*Uint8List|Buffer*/ password);
+  external static StoredKey create(
+      String name, dynamic /*Uint8List|Buffer*/ password);
 
   external String identifier();
 
@@ -1516,19 +1573,27 @@ class StoredKey {
 
   external Account accountForCoin(CoinType coin, HDWallet wallet);
 
-  external Account accountForCoinDerivation(CoinType coin, Derivation derivation, HDWallet wallet);
+  external Account accountForCoinDerivation(
+      CoinType coin, Derivation derivation, HDWallet wallet);
 
-  external void addAccountDerivation(String address, CoinType coin, Derivation derivation,
-      String derivationPath, String publicKey, String extendedPublicKey);
-
-  external void addAccount(String address, CoinType coin, String derivationPath, String publicKey,
+  external void addAccountDerivation(
+      String address,
+      CoinType coin,
+      Derivation derivation,
+      String derivationPath,
+      String publicKey,
       String extendedPublicKey);
+
+  external void addAccount(String address, CoinType coin, String derivationPath,
+      String publicKey, String extendedPublicKey);
 
   external void removeAccountForCoin(CoinType coin);
 
-  external void removeAccountForCoinDerivation(CoinType coin, Derivation derivation);
+  external void removeAccountForCoinDerivation(
+      CoinType coin, Derivation derivation);
 
-  external void removeAccountForCoinDerivationPath(CoinType coin, String derivationPath);
+  external void removeAccountForCoinDerivationPath(
+      CoinType coin, String derivationPath);
 
   external bool store(String path);
 
@@ -1536,7 +1601,8 @@ class StoredKey {
 
   external String decryptMnemonic(dynamic /*Uint8List|Buffer*/ password);
 
-  external PrivateKey privateKey(CoinType coin, dynamic /*Uint8List|Buffer*/ password);
+  external PrivateKey privateKey(
+      CoinType coin, dynamic /*Uint8List|Buffer*/ password);
 
   external HDWallet wallet(dynamic /*Uint8List|Buffer*/ password);
 
@@ -1549,12 +1615,14 @@ class StoredKey {
 
 @JS()
 class PublicKey {
-  external static bool isValid(dynamic /*Uint8List|Buffer*/ data, PublicKeyType type);
+  external static bool isValid(
+      dynamic /*Uint8List|Buffer*/ data, PublicKeyType type);
 
-  external static PublicKey recover(
-      dynamic /*Uint8List|Buffer*/ signature, dynamic /*Uint8List|Buffer*/ message);
+  external static PublicKey recover(dynamic /*Uint8List|Buffer*/ signature,
+      dynamic /*Uint8List|Buffer*/ message);
 
-  external static PublicKey createWithData(dynamic /*Uint8List|Buffer*/ data, PublicKeyType type);
+  external static PublicKey createWithData(
+      dynamic /*Uint8List|Buffer*/ data, PublicKeyType type);
 
   external bool isCompressed();
 
@@ -1568,14 +1636,14 @@ class PublicKey {
 
   external String description();
 
-  external bool verify(
-      dynamic /*Uint8List|Buffer*/ signature, dynamic /*Uint8List|Buffer*/ message);
+  external bool verify(dynamic /*Uint8List|Buffer*/ signature,
+      dynamic /*Uint8List|Buffer*/ message);
 
-  external bool verifyAsDER(
-      dynamic /*Uint8List|Buffer*/ signature, dynamic /*Uint8List|Buffer*/ message);
+  external bool verifyAsDER(dynamic /*Uint8List|Buffer*/ signature,
+      dynamic /*Uint8List|Buffer*/ message);
 
-  external bool verifySchnorr(
-      dynamic /*Uint8List|Buffer*/ signature, dynamic /*Uint8List|Buffer*/ message);
+  external bool verifySchnorr(dynamic /*Uint8List|Buffer*/ signature,
+      dynamic /*Uint8List|Buffer*/ message);
 
   external void delete();
 }

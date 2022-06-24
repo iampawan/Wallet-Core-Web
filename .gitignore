@@ -35,3 +35,4 @@ tool/yarn-error.log
 tool/yarn.lock
 
 node_modules/
+web/node_modules
