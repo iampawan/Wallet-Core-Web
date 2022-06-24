@@ -9,8 +9,6 @@ module.exports = {
     },
     resolve: {
         fallback: {
-            "stream": require.resolve("stream-browserify"),
-            "crypto": require.resolve("crypto-browserify"),
             "path": false,
             "buffer": false,
             "fs": false

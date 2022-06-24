@@ -2,9 +2,7 @@
   "name": "wallet_core_web",
   "version": "1.0.0",
   "dependencies": {
-    "@trustwallet/wallet-core": "^2.9.4",
-    "stream-browserify": "^3.0.0",
-    "crypto-browserify": "^3.12.0"
+    "@trustwallet/wallet-core": "^2.9.5"
   },
   "devDependencies": {
     "webpack": "^5.68.0",
